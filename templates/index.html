@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple to do List</title>
+</head>
+<body>
+    <h1>Simple To Do List</h1>
+    <table>
+        <tr>
+            <th>Item</th>
+            <th>Email</th>
+            <th>Priority</th>
+        </tr>
+        {% for item in to_do_test %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="/submit" method="post">
+        <label for="task">Task:</label>
+        <input type="text" name="task" required><br>
+        <label for="email">Email:</label>
+        <input type="text" name="email" required><br>
+        <label for="priority">Priority:</label>
+        <select name="priority" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <br>
+        <input type="submit" value="Add to Do Item">    
+    </form>
+    <form action="/clear" method="post">
+        <input type="submit" value="Clear">
+    </form>
+</body>
+</html>
